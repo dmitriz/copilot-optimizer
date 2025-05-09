@@ -1,0 +1,23 @@
+{
+  "name": "copilot-optimizer",
+  "version": "0.0.1",
+  "publisher": "dmitriz",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:copilot-optimizer"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-optimizer",
+        "title": "Copilot Optimizer"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode": "^1.60.0"
+  }
+}
