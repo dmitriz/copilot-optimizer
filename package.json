@@ -1,0 +1,27 @@
+{
+  "name": "copilot-optimizer",
+  "version": "0.0.1",
+  "publisher": "dmitriz",
+  "description": "Automatically approve safe terminal commands in GitHub Copilot Agent Mode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmitriz/copilot-optimizer"
+  },
+  "license": "MIT",
+  "keywords": ["copilot", "terminal", "automation", "command", "whitelist"],
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-optimizer",
+        "title": "Copilot Optimizer"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode": "^1.60.0"
+  }
+}
