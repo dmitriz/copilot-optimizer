@@ -6,6 +6,9 @@ function activate(context) {
         id: 'copilot-optimizer',
         label: 'Copilot Optimizer',
         run: async (command) => {
+            if (typeof command !== 'string' || !command.trim()) {
+                return { status: 'deferred' };
+            }
             if (isCommandAllowed(command)) {
                 return { status: 'approved' };
             } else {
