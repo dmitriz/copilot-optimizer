@@ -39,7 +39,7 @@ module.exports = [
     'npm install *',
     'mkdir *',
     'git clone *',
-    'rm -rf *',
+    //'rm -rf *', // VERY DANGEROUS - DO NOT UNCOMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
     'touch *',
     'echo *',
     'cp *',
