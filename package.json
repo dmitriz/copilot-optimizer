@@ -10,12 +10,9 @@
   "license": "MIT",
   "keywords": ["copilot", "terminal", "automation", "command", "whitelist"],
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.75.0"
   },
   "main": "./extension.js",
-  "activationEvents": [
-    "onStartupFinished"
-  ],
   "contributes": {
     "commands": [
       {
