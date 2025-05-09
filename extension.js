@@ -1,6 +1,6 @@
 const vscode = require('vscode');
-// No direct import here
-let whitelist = [];
+// Import the whitelist from whitelist.js
+let whitelist = require('./whitelist');
 
 /**
  * Activates the extension by registering the "Copilot Optimizer" language tool.
@@ -24,6 +24,13 @@ function activate(context) {
     });
 
     context.subscriptions.push(tool);
+
+    // Register the command and wrap it with context.subscriptions.push
+    context.subscriptions.push(
+        vscode.commands.registerCommand('copilot-optimizer', () => {
+            vscode.window.showInformationMessage("Copilot Optimizer is running");
+        })
+    );
 }
 
 /**
