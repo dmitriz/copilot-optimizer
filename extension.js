@@ -19,7 +19,7 @@ function activate(context) {
 
 function isCommandAllowed(command) {
     return whitelist.some(pattern => {
-        const regex = new RegExp('^' + pattern.replace('*', '.*') + '$');
+        const regex = new RegExp('^' + pattern.replace(/[-\/^$*+?.()|[]{}]/g, '\\$&').replace('\*', '.*') + '$');
         return regex.test(command);
     });
 }
