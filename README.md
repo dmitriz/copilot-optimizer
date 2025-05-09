@@ -7,32 +7,48 @@ The Copilot Optimizer is a Visual Studio Code extension that integrates with Git
 ## Installation
 
 1. Clone the repository:
+
    ```sh
    git clone https://github.com/dmitriz/copilot-optimizer.git
    ```
+
 2. Navigate to the extension directory:
+
    ```sh
    cd copilot-optimizer
    ```
+
 3. Install the dependencies:
+
    ```sh
    npm install
    ```
+
 4. Open the extension directory in Visual Studio Code:
+
    ```sh
    code .
    ```
+
 5. Press `F5` to start debugging the extension.
 
 ## Usage
 
-Once the extension is activated, it will automatically intercept terminal commands executed by GitHub Copilot Agent Mode. The extension will evaluate the command against the whitelist patterns and decide whether to approve or defer the command.
+To use the extension:
+
+1. Activate the extension by running the "Copilot Optimizer" command from the Command Palette (Ctrl+Shift+P or Cmd+Shift+P)
+2. Open a terminal and start using GitHub Copilot Agent Mode
+3. When Copilot suggests terminal commands, the extension will automatically:
+   - Approve commands that match the whitelist patterns
+   - Defer other commands for your manual review
+
+You can verify the extension is working by checking the output panel for logs showing command evaluations.
 
 ## Configuration
 
-The whitelist patterns are stored in a separate configuration file called `whitelist.js`. The file exports an array of allowed command patterns using glob-like patterns such as 'npm install *', 'mkdir *', etc.
+The whitelist patterns are stored in a separate configuration file called `whitelist.js`. The file exports an array of allowed command patterns using glob-like patterns such as 'npm install *', 'mkdir*', etc.
 
-### Example `whitelist.js`:
+### Example `whitelist.js`
 
 ```js
 module.exports = [

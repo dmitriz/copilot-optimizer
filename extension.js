@@ -1,5 +1,6 @@
 const vscode = require('vscode');
-const whitelist = require('./whitelist');
+// No direct import here
+let whitelist = [];
 
 function activate(context) {
     const tool = vscode.languageModels.createTool({
@@ -21,7 +22,11 @@ function activate(context) {
 }
 
 function isCommandAllowed(command) {
+    if (typeof command !== 'string' || !Array.isArray(whitelist)) {
+        return false;
+    }
     return whitelist.some(pattern => {
+        if (typeof pattern !== 'string') return false;
         const regex = new RegExp('^' + pattern.replace(/[-\/^$*+?.()|[]{}]/g, '\\$&').replace('\*', '.*') + '$');
         return regex.test(command);
     });
@@ -30,7 +35,9 @@ function isCommandAllowed(command) {
 exports.activate = activate;
 
 function deactivate() {
-    // Clean up resources if needed
+    // No cleanup needed for this extension
+    // If future versions require cleanup, implement it here
+    whitelist = [];
 }
 
 exports.deactivate = deactivate;
